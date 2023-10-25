@@ -1,0 +1,2 @@
+mkdir .venv
+pipenv install moviepy

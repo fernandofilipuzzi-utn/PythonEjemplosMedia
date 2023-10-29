@@ -1,11 +1,11 @@
 import sounddevice as sd
 import wave
 
-duration = 10  # Duración de la grabación en segundos
-samplerate = 16000  # Frecuencia de muestreo (ejemplo: 16000 Hz)
+duracion = 10  # segundos
+sampling_rate = 16000  # Frecuencia de muestreo (ejemplo: 16000 Hz)
 
 print("Iniciando grabación...")
-audio = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=1, dtype="int16")
+audio = sd.rec(int(duracion * sampling_rate), samplerate=sampling_rate, channels=1, dtype="int16")
 sd.wait()
 print("Grabación finalizada")
 
@@ -14,5 +14,5 @@ print("Audio grabado. Guardando en", filename)
 with wave.open(filename, 'wb') as wf:
     wf.setnchannels(1)
     wf.setsampwidth(2)
-    wf.setframerate(samplerate)
+    wf.setframerate(sampling_rate)
     wf.writeframes(audio.tobytes())

@@ -1,0 +1,5 @@
+pipenv install gtts
+pipenv install playsound
+
+pipenv shell
+python app.py
